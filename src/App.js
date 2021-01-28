@@ -2,6 +2,7 @@ import React,{ useEffect, useState } from 'react';
 import './App.css';
 import TaskA from './components/TaskA';
 import TaskB from './components/TaskB';
+import TaskC from './components/TaskC';
 import { csvToJSON } from './utils';
 
 const DATA_INFO = {
@@ -35,7 +36,8 @@ function App() {
     <div className="App">
       <h1>Stock Analyzer</h1>
       <TaskA stockData={stockData} dataInfo={DATA_INFO}/>
-      <TaskB stockData={stockData} dataInfo={DATA_INFO}/>
+      <TaskB stockData={stockData} />
+      <TaskC stockData={stockData} />
     </div>
   );
 }

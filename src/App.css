@@ -29,6 +29,10 @@ table{
     max-width: 25rem;
 }
 
+thead{
+    text-align: left;
+}
+
 tbody {
     display: block;
     height: 20rem;
@@ -37,5 +41,5 @@ tbody {
 thead, tbody tr {
     display: table;
     width: 100%;
-    table-layout: fixed;/* even columns width , fix width of table too*/
+    table-layout: fixed;
 }

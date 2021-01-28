@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import { filterData } from '../utils'
 import DateInputs from './DateInputs'
 
 export default function TaskA({stockData,dataInfo}) {
@@ -13,17 +14,14 @@ export default function TaskA({stockData,dataInfo}) {
     useEffect(() => {
         if(stockData){
 
-            const dataCopy = [...stockData]
-                .filter(item => item.Date.getTime()>new Date(selectedDates.startDate).getTime())
-                .filter(item => item.Date.getTime()<new Date(selectedDates.endDate).getTime())
-                .sort((a,b) => a.Date.getTime()-b.Date.getTime()) // Oldest to newest
+            const dataCopy = filterData(stockData,selectedDates)
 
             let longestUpwardTrendDays = 0
             let currentUpwardTrendDays = 0
             
             for(let i=1;i<dataCopy.length;i++){
                 
-                let upFromPrevDay = dataCopy[i]["Close/Last"] > dataCopy[i-1]["Close/Last"]
+                const upFromPrevDay = dataCopy[i]["Close/Last"] > dataCopy[i-1]["Close/Last"]
 
                 if(!upFromPrevDay){
                     currentUpwardTrendDays = 0
