@@ -11,7 +11,7 @@ export const csvToJSON = (csvData) =>{
     return jsonData
 }
 
-export function parseValue(value,type){
+const parseValue = (value,type) =>{
     switch(type){
         case 'Date':
             return new Date(value)
@@ -19,3 +19,5 @@ export function parseValue(value,type){
             return Number(value.replace(/[&\/\\#,+()$~%'":*?<>{}]/g, ''))
     }
 }
+
+export const dateToString = date => date.toLocaleString().split(',')[0]

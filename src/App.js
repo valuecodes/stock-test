@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react';
 import './App.css';
 import TaskA from './components/TaskA';
+import TaskB from './components/TaskB';
 import { csvToJSON } from './utils';
 
 const DATA_INFO = {
@@ -29,11 +30,12 @@ function App() {
     const csv = await decoder.decode(result.value);
     return csv;
   }
-  console.log(stockData)
+
   return (
     <div className="App">
       <h1>Stock Analyzer</h1>
       <TaskA stockData={stockData} dataInfo={DATA_INFO}/>
+      <TaskB stockData={stockData} dataInfo={DATA_INFO}/>
     </div>
   );
 }

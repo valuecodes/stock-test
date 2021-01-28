@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import DateInput from './DateInput'
+import DateInputs from './DateInputs'
 
 export default function TaskA({stockData,dataInfo}) {
 
@@ -48,21 +48,11 @@ export default function TaskA({stockData,dataInfo}) {
     return (
         <div>
             <p>A) How many days was the longest bullish (upward) trend within a given date range?</p>
-            <div className='dateInputs'>
-                <DateInput 
-                    name={'startDate'} 
-                    changeDate={changeDateHandler} 
-                    selectedDates={selectedDates} 
-                    dataInfo={dataInfo}
-                />
-                <p>-</p>
-                <DateInput 
-                    name={'endDate'} 
-                    changeDate={changeDateHandler} 
-                    selectedDates={selectedDates} 
-                    dataInfo={dataInfo}
-                />
-            </div>
+            <DateInputs 
+                changeDate={changeDateHandler} 
+                selectedDates={selectedDates} 
+                dataInfo={dataInfo}
+            />
             <div>
                 {selectedDates &&<p>
                     Close/Last price increased <b>{longestTrendDays}</b> days in a row between {selectedDates.startDate} and {selectedDates.endDate}.
