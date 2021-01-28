@@ -1,0 +1,12 @@
+
+.dateInputs{
+    display: flex;
+}
+
+.dateInputs p{
+    margin: 1rem;
+}
+
+.dateInput label{
+    display: block
+}

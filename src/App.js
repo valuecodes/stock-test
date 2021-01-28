@@ -1,6 +1,12 @@
 import React,{ useEffect, useState } from 'react';
 import './App.css';
+import TaskA from './components/TaskA';
 import { csvToJSON } from './utils';
+
+const DATA_INFO = {
+  startDate:"2020-01-20",
+  endDate:"2021-01-20",
+}
 
 function App() {
 
@@ -26,7 +32,8 @@ function App() {
   console.log(stockData)
   return (
     <div className="App">
-      test
+      <h1>Stock Analyzer</h1>
+      <TaskA stockData={stockData} dataInfo={DATA_INFO}/>
     </div>
   );
 }
